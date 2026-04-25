@@ -21,10 +21,17 @@ const ideaSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
+  authorName: {
+    type: String,
+    default: 'Anonymous'
+  },
   contactLinks: {
     instagram: { type: String, default: '' },
     whatsapp: { type: String, default: '' },
-    email: { type: String, default: '' }
+    email: { type: String, default: '' },
+    linkedin: { type: String, default: '' },
+    github: { type: String, default: '' },
+    twitter: { type: String, default: '' }
   }
 }, { timestamps: true });
 

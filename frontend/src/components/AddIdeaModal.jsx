@@ -4,6 +4,7 @@ import { X } from 'lucide-react';
 
 export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
   const [formData, setFormData] = useState({
+    authorName: '',
     title: '',
     details: '',
     rolesNeeded: '',
@@ -11,7 +12,10 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
     keywords: '',
     instagram: '',
     whatsapp: '',
-    email: ''
+    email: '',
+    linkedin: '',
+    github: '',
+    twitter: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -29,6 +33,7 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
     
     try {
       const payload = {
+        authorName: formData.authorName,
         title: formData.title,
         details: formData.details,
         rolesNeeded: formData.rolesNeeded,
@@ -37,7 +42,10 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
         contactLinks: {
           instagram: formData.instagram,
           whatsapp: formData.whatsapp,
-          email: formData.email
+          email: formData.email,
+          linkedin: formData.linkedin,
+          github: formData.github,
+          twitter: formData.twitter
         }
       };
       
@@ -45,7 +53,7 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
       onIdeaAdded(res.data);
       onClose();
       // Reset form
-      setFormData({ title: '', details: '', rolesNeeded: '', stage: 'Idea phase', keywords: '', instagram: '', whatsapp: '', email: '' });
+      setFormData({ authorName: '', title: '', details: '', rolesNeeded: '', stage: 'Idea phase', keywords: '', instagram: '', whatsapp: '', email: '', linkedin: '', github: '', twitter: '' });
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to post idea');
     } finally {
@@ -66,6 +74,11 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
         {error && <div style={{ padding: '12px', background: '#FEE2E2', color: '#DC2626', borderRadius: '8px', marginBottom: '16px', fontSize: '0.9rem' }}>{error}</div>}
 
         <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Your Name <span style={{color: 'red'}}>*</span></label>
+            <input type="text" name="authorName" className="input-field" placeholder="E.g., John Doe" value={formData.authorName} onChange={handleChange} required />
+          </div>
+
           <div className="form-group">
             <label className="form-label">Title <span style={{color: 'red'}}>*</span></label>
             <input type="text" name="title" className="input-field" placeholder="E.g., Next-Gen AI Study App" value={formData.title} onChange={handleChange} required />
@@ -103,7 +116,22 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
             
             <div className="form-group">
               <label className="form-label">Instagram Handle/URL</label>
-              <input type="text" name="instagram" className="input-field" placeholder="e.g., your_handle" value={formData.instagram} onChange={handleChange} />
+              <input type="text" name="instagram" className="input-field" placeholder="e.g., your_handle or https://instagram.com/..." value={formData.instagram} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Twitter/X Handle</label>
+              <input type="text" name="twitter" className="input-field" placeholder="e.g., your_handle" value={formData.twitter} onChange={handleChange} />
+            </div>
+            
+            <div className="form-group">
+              <label className="form-label">LinkedIn URL</label>
+              <input type="text" name="linkedin" className="input-field" placeholder="e.g., https://linkedin.com/in/..." value={formData.linkedin} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">GitHub Username</label>
+              <input type="text" name="github" className="input-field" placeholder="e.g., your_username" value={formData.github} onChange={handleChange} />
             </div>
             
             <div className="form-group">

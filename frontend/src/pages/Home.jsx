@@ -87,23 +87,23 @@ export default function Home() {
         <div className="glass-card flex justify-between" style={{ padding: '32px 48px', borderRadius: '24px' }}>
 
           <div className="stat-item flex-col items-center" style={{ flex: 1, textAlign: 'center', borderRight: '1px solid #E5E7EB' }}>
-            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>250+</h3>
+            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>0</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>Ideas Posted</p>
           </div>
 
           <div className="stat-item flex-col items-center" style={{ flex: 1, textAlign: 'center', borderRight: '1px solid #E5E7EB' }}>
-            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>1,200+</h3>
+            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>0</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>Active Members</p>
           </div>
 
           <div className="stat-item flex-col items-center" style={{ flex: 1, textAlign: 'center', borderRight: '1px solid #E5E7EB' }}>
-            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>300+</h3>
+            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>0</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>Teams Formed</p>
           </div>
 
           <div className="stat-item flex-col items-center" style={{ flex: 1, textAlign: 'center' }}>
-            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>25+</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>Countries</p>
+            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>India</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>Current-Place</p>
           </div>
 
         </div>
