@@ -89,7 +89,7 @@ const Message = () => {
           
           {/* Floating Founder Card */}
           <div className="glass-card message-founder-card" style={{ width:309 , padding:12, height:160 }}>
-            <p style={{ color: 'var(--primary-light)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '5px' }}>Founder</p>
+            <p style={{ color: 'var(--primary-light)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '5px' }}>Creator</p>
             <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '9px' }}>Yash Gupta</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.80rem', lineHeight: '1.4', marginBottom: '11px' }}>
               I believe that a single idea can change a life, and a strong team can change the world.
