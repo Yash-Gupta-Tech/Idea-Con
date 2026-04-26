@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Quote, Heart, Users, Lightbulb, Rocket, Handshake, Globe2 } from 'lucide-react';
+import axios from 'axios';
 
 const Message = () => {
+  const [ideasCount, setIdeasCount] = useState(0);
+
+  useEffect(() => {
+    const fetchIdeasCount = async () => {
+      try {
+        const res = await axios.get('https://idea-con-backend.onrender.com/api/ideas');
+        if (res.data && Array.isArray(res.data)) {
+          setIdeasCount(res.data.length);
+        }
+      } catch (err) {
+        console.error('Failed to fetch ideas count:', err);
+      }
+    };
+    fetchIdeasCount();
+  }, []);
   return (
     <div className="message-page container animate-fade-in">
       
@@ -73,7 +89,7 @@ const Message = () => {
           
           {/* Floating Founder Card */}
           <div className="glass-card message-founder-card" style={{ width:309 , padding:12, height:160 }}>
-            <p style={{ color: 'var(--primary-light)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '5px' }}>Student</p>
+            <p style={{ color: 'var(--primary-light)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '5px' }}>Founder</p>
             <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-dark)', marginBottom: '9px' }}>Yash Gupta</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.80rem', lineHeight: '1.4', marginBottom: '11px' }}>
               I believe that a single idea can change a life, and a strong team can change the world.
@@ -178,7 +194,9 @@ const Message = () => {
               <Users size={32} />
             </div>
             <div style={{ textAlign: 'left' }}>
-              <h3 style={{ fontWeight: '800', fontSize: '1.4rem', color: 'var(--text-dark)' }}>0+</h3>
+              <h3 style={{ fontWeight: '800', fontSize: '1.4rem', color: 'var(--text-dark)' }}>
+                {ideasCount > 0 ? `${ideasCount}+` : '0+'}
+              </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Ideas Shared</p>
             </div>
           </div>
