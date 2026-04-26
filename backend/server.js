@@ -78,6 +78,16 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+const path = require('path');
+
+// Serve static frontend files (if deployed as a unified web service)
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Catch-all route to serve the React app for all unknown routes (handles React Router "Not Found" issue)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
