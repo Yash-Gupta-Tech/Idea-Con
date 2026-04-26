@@ -84,7 +84,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 // Catch-all route to serve the React app for all unknown routes (handles React Router "Not Found" issue)
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
