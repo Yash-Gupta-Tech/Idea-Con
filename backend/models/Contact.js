@@ -17,6 +17,6 @@ const contactSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Message is required']
   }
-}, { timestamps: true, collection: 'Contact' });
+}, { timestamps: true, collection: 'message' });
 
 module.exports = mongoose.model('Contact', contactSchema);

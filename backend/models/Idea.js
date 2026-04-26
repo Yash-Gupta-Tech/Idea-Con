@@ -33,6 +33,6 @@ const ideaSchema = new mongoose.Schema({
     github: { type: String, default: '' },
     twitter: { type: String, default: '' }
   }
-}, { timestamps: true });
+}, { timestamps: true, collection: 'idea' });
 
 module.exports = mongoose.model('Idea', ideaSchema);
