@@ -19,7 +19,7 @@ export default function Ideas() {
   const fetchIdeas = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('https://idea-connect-backend.onrender.com');
+      const res = await axios.get('https://idea-con-backend.onrender.com/api/ideas');
       setIdeas(res.data);
       setError(null);
     } catch (err) {

@@ -49,7 +49,7 @@ export default function AddIdeaModal({ isOpen, onClose, onIdeaAdded }) {
         }
       };
       
-      const res = await axios.post('https://idea-connect-backend.onrender.com', payload);
+      const res = await axios.post('https://idea-con-backend.onrender.com/api/ideas', payload);
       onIdeaAdded(res.data);
       onClose();
       // Reset form
