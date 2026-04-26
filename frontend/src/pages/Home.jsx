@@ -1,7 +1,24 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, PlayCircle } from 'lucide-react';
+import axios from 'axios';
 
 export default function Home() {
+  const [ideasCount, setIdeasCount] = useState(0);
+
+  useEffect(() => {
+    const fetchIdeasCount = async () => {
+      try {
+        const res = await axios.get('https://idea-con-backend.onrender.com/api/ideas');
+        if (res.data && Array.isArray(res.data)) {
+          setIdeasCount(res.data.length);
+        }
+      } catch (err) {
+        console.error('Failed to fetch ideas count:', err);
+      }
+    };
+    fetchIdeasCount();
+  }, []);
   return (
     <div className="container" style={{ paddingBottom: '60px' }}>
       <div className="hero flex items-center justify-between" style={{ minHeight: '80vh', position: 'relative' }}>
@@ -87,7 +104,9 @@ export default function Home() {
         <div className="glass-card flex justify-between" style={{ padding: '32px 48px', borderRadius: '24px' }}>
 
           <div className="stat-item flex-col items-center" style={{ flex: 1, textAlign: 'center', borderRight: '1px solid #E5E7EB' }}>
-            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>0</h3>
+            <h3 style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: '800', marginBottom: '4px' }}>
+              {ideasCount > 0 ? `${ideasCount}+` : '0'}
+            </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500' }}>Ideas Posted</p>
           </div>
 
