@@ -24,12 +24,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 40%);
@@ -611,14 +615,13 @@ textarea.input-field {
     width: 100%;
   }
   .message-founder-card {
-    /* right: 50%; */
-    transform: translateX(50%);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
     bottom: -60px;
     top: auto;
     width: 90%;
     max-width: 340px;
-        right: 180px;
-   
     padding: 12px;
     height: 160px;
   }
@@ -673,6 +676,9 @@ textarea.input-field {
     padding: 24px;
     width: 95%;
     bottom: -80px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
   .message-features-row {
     /* flex-direction: column; */
