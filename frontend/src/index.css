@@ -685,6 +685,9 @@ textarea.input-field {
     align-items: center;
     gap: 16px;
   }
+      .message-features-row h4 {
+        font-size: 0.55rem !important;
+    }
   .message-features-row > div {
     width: 100%;
     justify-content: flex-start;
